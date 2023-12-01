@@ -26,6 +26,7 @@
                     v-model="sale.sale_value"
                     label="Valor da Venda"
                     dense
+                    type="number"
                   ></v-text-field>
                 </v-col>
                 <v-col cols="2" class="alignment">

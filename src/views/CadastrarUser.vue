@@ -3,7 +3,7 @@
     <v-card>
       <v-toolbar flat>
         <v-toolbar-title class="pl-4">
-          Cadastrar Usuário
+          Cadastrar Vendedor
         </v-toolbar-title>
         <v-spacer></v-spacer>
       </v-toolbar>
@@ -14,15 +14,25 @@
             <v-container>
               <v-row>
                 <v-col cols="12" sm="6" md="4">
-                  <v-card-title class="text-h7"> Nome do Usuário </v-card-title>
+                  <v-card-title class="text-h7"> Nome do Vendedor </v-card-title>
                   <v-card-text style="padding-bottom: 0">
-                    <v-text-field solo type="text" v-model="user.name"></v-text-field>
+                    <v-text-field 
+                    solo 
+                    type="text"
+                    v-model="user.name"
+                    :rules="[rules.required]"
+                    ></v-text-field>
                   </v-card-text>
                 </v-col>
                 <v-col cols="12" sm="6" md="4">
-                  <v-card-title class="text-h7"> Email do Usuário </v-card-title>
+                  <v-card-title class="text-h7"> Email do Vendedor </v-card-title>
                   <v-card-text style="padding-bottom: 0">
-                    <v-text-field solo type="text" v-model="user.email"></v-text-field>
+                    <v-text-field 
+                    solo 
+                    type="text"
+                     v-model="user.email"
+                     :rules="[rules.required, rules.email]"
+                     ></v-text-field>
                   </v-card-text>
                 </v-col>
               </v-row>
@@ -35,7 +45,7 @@
               <v-btn
                 class="ma-2"
                 color="primary"
-                @click="registerUser()"
+                @click="registerSeller()"
               >
                 Salvar
               </v-btn>
@@ -62,9 +72,16 @@ import { baseApiUrl } from "@/global";
         nome: "",
         email: "",
       },
+      rules: {
+          required: value => !!value || 'Obrigatório.',
+          email: value => {
+            const pattern = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+            return pattern.test(value) || 'Insira um email válido.'
+          },
+        },
     }),
     methods: {
-      registerUser(){
+      registerSeller(){
         axios
         .post(`${baseApiUrl}/users/create`, {
           name: this.user.name,

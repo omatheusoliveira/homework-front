@@ -6,43 +6,29 @@ Vue.use(VueRouter)
 const routes = [
   {
     path: '/',
+    redirect: '/list-user',
     name: 'Principal',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/PrincipalView.vue'),
+    component: () => import('../views/PrincipalView.vue'),
     children: [
       {
         path: '/register-user',
         name: 'Cadastrar Usuario',
-        // route level code-splitting
-        // this generates a separate chunk (principal.[hash].js) for this route
-        // which is lazy-loaded when the route is visited.
-        component: () => import(/* webpackChunkName: "principal" */ '../views/CadastrarUser.vue'),
+        component: () => import('../views/CadastrarUser.vue'),
       },
       {
         path: '/list-user',
         name: 'Listar Usuario',
-        // route level code-splitting
-        // this generates a separate chunk (principal.[hash].js) for this route
-        // which is lazy-loaded when the route is visited.
-        component: () => import(/* webpackChunkName: "principal" */ '../views/ListarUser.vue'),
+        component: () => import('../views/ListarUser.vue'),
       },
       {
         path: '/list-sale',
         name: 'Listar Vendas',
-        // route level code-splitting
-        // this generates a separate chunk (principal.[hash].js) for this route
-        // which is lazy-loaded when the route is visited.
-        component: () => import(/* webpackChunkName: "principal" */ '../views/ListarVenda.vue'),
+        component: () => import('../views/ListarVenda.vue'),
       },
       {
         path: '/register-sale',
         name: 'Cadastrar Tarefa',
-        // route level code-splitting
-        // this generates a separate chunk (principal.[hash].js) for this route
-        // which is lazy-loaded when the route is visited.
-        component: () => import(/* webpackChunkName: "principal" */ '../views/CadastrarVenda.vue'),
+        component: () => import('../views/CadastrarVenda.vue'),
       },
     ]
   }
