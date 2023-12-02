@@ -26,9 +26,6 @@
                     @change="loadSales(filtredSellerID)"
                   ></v-select>
               </v-col>
-              <v-btn class="ma-2" color="primary" @click="sendReport()" title="Enviar relatório de vendas do dia corrente">
-                Enviar relatório
-              </v-btn>
             </v-row>
 
             <v-data-table
@@ -132,19 +129,6 @@ import { baseApiUrl } from "@/global";
           })
       },
 
-      sendReport(){
-        this.modalSendReport(true)
-        axios
-          .post(`${baseApiUrl}/send-email`)
-          .then(() => {
-            this.modalSendReport(false)
-          })
-          .catch((error) => {
-            console.log(error);
-            this.listSales.carregando = false;
-          })
-      },
-
       modalLoadingData(loading){
         if(loading){
           this.$swal.fire({
@@ -156,24 +140,6 @@ import { baseApiUrl } from "@/global";
           })
         }else{
           this.$swal.close()
-        }
-      },
-
-      modalSendReport(loading){
-        if(loading){
-          this.$swal.fire({
-            title: 'Aguarde!',
-            text: 'Enviando dados',
-            didOpen: () => {
-              this.$swal.showLoading()
-            },
-          })
-        }else{
-          this.$swal.fire({
-            icon: 'success',
-            title: 'Sucesso!',
-            text: 'Relatório enviado com sucesso.',
-          })
         }
       },
     }

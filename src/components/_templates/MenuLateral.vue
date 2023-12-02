@@ -71,16 +71,16 @@ export default {
             menus: [
                 {
                     icone: 'fa fa-user',
-                    titulo: 'Usuários',
+                    titulo: 'Vendedor',
                     itens: [
                         {
                             icone: 'fa fa-list',
-                            titulo: 'Listagem/Edição dos Usuários',
+                            titulo: 'Listagem/Edição dos Vendedores',
                             url: '/list-user'
                         },
                         {
                             icone: 'fa fa-file-lines',
-                            titulo: 'Cadastro de Usuários',
+                            titulo: 'Cadastro de Vendedor',
                             url: '/register-user'
                         },
                     ]
