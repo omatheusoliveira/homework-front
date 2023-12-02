@@ -4,7 +4,7 @@
     <v-card>
       <v-toolbar flat>
         <v-icon> fas fa-user </v-icon>
-        <v-toolbar-title class="pl-4"> Lista de Usuários: </v-toolbar-title>
+        <v-toolbar-title class="pl-4"> Lista de Vendedores: </v-toolbar-title>
         <v-spacer></v-spacer>
       </v-toolbar>
       <v-divider></v-divider>
